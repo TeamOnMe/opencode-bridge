@@ -1,0 +1,13 @@
+[Unit]
+Description=OpenCode free-model bridge (OpenAI-compatible over opencode serve)
+After=network.target opencode-serve.service
+Wants=opencode-serve.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /root/opencode-bridge/bridge.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
